@@ -1,0 +1,33 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+    
+
+
+<div class="jumbotron">
+    <h1 class="display-4">Employee Registration System</h1>
+    <p class="lead">Python Django for Implementing CRUD operations</p>
+    <hr class="my-2">
+    <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">Full Name</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Position</th>
+            <th scope="col"><a href="{% url 'add' %}"><button type="button" class="btn btn-outline-success" >+ Add New</button></a></th>
+         </tr>
+        </thead>
+        <tbody>
+            {% for e in emp %}
+          <tr>
+            <td>{{e.full_name}} - {{e.emp_code}}</td>
+            <td>{{e.mobile_num}}</td>
+            <td>{{e.position}}</td>
+            <td><a href="{% url 'edit' e.id %}"><i class="fas fa-edit" style="color:rgb(0, 142, 207);"> </i></a></td>   
+            <td><a href="{% url 'delete' e.id %}"><i class="fas fa-trash-alt" style="color:rgb(204, 41, 41);"></i></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
+{% endblock %}

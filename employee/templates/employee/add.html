@@ -1,0 +1,41 @@
+{% extends 'employee/base.html' %}
+
+{% block content %}
+    
+
+
+<div class="jumbotron">
+    <h1 class="display-4">Employee Registration System</h1>
+    <p class="lead">Python Django for Implementing CRUD operations</p>
+    <hr class="my-2">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" class="form-control" name="full_name">
+        </div>
+        <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="number" class="form-control" name="mobile_num">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label>Employee Code</label>
+              <input type="text" class="form-control" name="emp_code">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">Position</label>
+              <select id="inputState" class="form-control" name="position">
+                <option selected>Accountant</option>
+                <option>Manager</option>
+                <option>Jr.Developer</option>
+                <option>Sr.Developer</option>
+
+
+              </select>
+            </div>
+          </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
+  </div>
+{% endblock %}
